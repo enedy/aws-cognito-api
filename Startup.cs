@@ -26,6 +26,7 @@ namespace AWS.Cognito.Api
         public void ConfigureServices(IServiceCollection services)
         {
 
+            services.AddCognitoIdentity();
             services.AddControllers();
 
             void ConfigureAuthenticationOptions(AuthenticationOptions options)
@@ -37,8 +38,8 @@ namespace AWS.Cognito.Api
             void ConfigureJwtBearerOptions(JwtBearerOptions options)
             {
                 var Region = Configuration["AWS:Region"];
-                var PoolId = Configuration["AWS:PoolId"];
-                var AppClientId = Configuration["AWS:ClientId"];
+                var PoolId = Configuration["AWS:UserPoolId"];
+                var AppClientId = Configuration["AWS:UserPoolClientId"];
                 options.SaveToken = true;
                 options.TokenValidationParameters = new TokenValidationParameters
                 {
@@ -60,16 +61,22 @@ namespace AWS.Cognito.Api
 
             }
 
-            services.AddAuthorization(auth =>
-            {
-                auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
-                    .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
-                    .RequireAuthenticatedUser().Build());
-            });
+            //services.AddAuthorization(auth =>
+            //{
+            //    auth.AddPolicy("Bearer", new AuthorizationPolicyBuilder()
+            //        .AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme)
+            //        .RequireAuthenticatedUser().Build());
+            //});
 
-            services.AddCors()
-                    .AddAuthentication(ConfigureAuthenticationOptions)
-                    .AddJwtBearer(ConfigureJwtBearerOptions);
+            services.AddCors();
+            //services.AddCors()
+            //        .AddAuthentication(ConfigureAuthenticationOptions)
+            //        .AddJwtBearer(ConfigureJwtBearerOptions);
+
+            services
+                .AddAuthentication(ConfigureAuthenticationOptions)
+                .AddJwtBearer(ConfigureJwtBearerOptions);
+
 
             services.AddSwaggerGen(c =>
             {
