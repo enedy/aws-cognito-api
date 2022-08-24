@@ -1,8 +1,8 @@
 # aws-cognito-api
 
-O Objetivo do projeto obter um token de acesso a partir das credenciais criadas no aws cognito, demonstrando a autorização de uma api
+The goal of the project is to obtain an access token from the credentials created in aws cognito, demonstrating the authorization of an API
 
-## tecnologias Utilizadas no Projeto
+## Technologies used
 - .Net 5
 - Web Api
 - AWS Cognito
