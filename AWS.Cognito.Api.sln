@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWS.Cognito.Api", "AWS.Cognito.Api.csproj", "{19B2ED8D-3F7A-4002-9825-24665EC200F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AWS.Cognito.Api", "src\AWS.Cognito.Api.csproj", "{19B2ED8D-3F7A-4002-9825-24665EC200F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
